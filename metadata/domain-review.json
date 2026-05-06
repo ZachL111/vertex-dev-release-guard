@@ -1,0 +1,73 @@
+{
+  "repo": "vertex-dev-release-guard",
+  "language": "Rust",
+  "category": "Developer tools",
+  "goal": "Build a Rust toolkit that studies release behavior through bounded scenario files, with conflict explanations and offline replay mode.",
+  "review_model": {
+    "terms": [
+      "change width",
+      "diagnostic quality",
+      "review cost",
+      "safe rewrite"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "change width",
+      "signal": 78,
+      "slack": 25,
+      "drag": 30,
+      "confidence": 92,
+      "score": 183,
+      "lane": "ship"
+    },
+    {
+      "name": "stress",
+      "focus": "diagnostic quality",
+      "signal": 47,
+      "slack": 48,
+      "drag": 28,
+      "confidence": 94,
+      "score": 152,
+      "lane": "ship"
+    },
+    {
+      "name": "edge",
+      "focus": "review cost",
+      "signal": 82,
+      "slack": 43,
+      "drag": 20,
+      "confidence": 82,
+      "score": 229,
+      "lane": "ship"
+    },
+    {
+      "name": "recovery",
+      "focus": "safe rewrite",
+      "signal": 63,
+      "slack": 43,
+      "drag": 26,
+      "confidence": 91,
+      "score": 182,
+      "lane": "ship"
+    },
+    {
+      "name": "stale",
+      "focus": "change width",
+      "signal": 74,
+      "slack": 36,
+      "drag": 28,
+      "confidence": 81,
+      "score": 181,
+      "lane": "ship"
+    }
+  ]
+}
