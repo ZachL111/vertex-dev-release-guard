@@ -61,3 +61,9 @@ foreach ($pathPattern in $knownPaths) {
 cargo test
 
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-vertex-dev-release-detail.ps1
+
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-vertex-dev-release-properties.ps1
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-vertex-dev-release-golden.ps1
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
